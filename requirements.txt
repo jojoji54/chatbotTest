@@ -14,7 +14,7 @@ regex==2021.4.4
 six==1.15.0
 torch==0.1.2.post2
 torchaudio==0.7.1
-torchvision==0.5.0
+torchvision==0.2.2.post
 tqdm==4.60.0
 typing-extensions==3.7.4.3
 Werkzeug==1.0.1
