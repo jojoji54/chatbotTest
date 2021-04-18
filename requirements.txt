@@ -1,4 +1,3 @@
-﻿-f https://download.pytorch.org/whl/torch_stable.html
 click==7.1.2
 Flask==1.1.2
 Flask-Cors==3.0.10
