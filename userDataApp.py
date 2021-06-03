@@ -9,7 +9,8 @@ import time
 import os
 
 app = Flask(__name__, static_url_path='');
-
+os.system('python database.py')
+os.system('python trainMessages.py')
 
 
 CORS(app)
@@ -22,10 +23,10 @@ def response():
     app.logger.info('start')
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     app.logger.info(device)
-    with open('intents.json', 'r') as json_data:
+    with open('UserMessages.json', 'r') as json_data:
         intents = json.load(json_data)
     app.logger.info(intents)
-    FILE = "data.pth"
+    FILE = "data2.pth"
     data = torch.load(FILE)
     app.logger.info(data)
     input_size = data["input_size"]
@@ -63,7 +64,5 @@ def response():
             if tag == intent["tag"]:
                 return jsonify({"response" : random.choice(intent['responses'])})
     else:
-        os.system('python userDataApp.py')
-        return('???')
-        
-    
+         os.system('python app.py')
+         return('???')
