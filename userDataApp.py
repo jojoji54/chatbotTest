@@ -9,7 +9,7 @@ import time
 import os
 
 app = Flask(__name__, static_url_path='');
-os.system('python database.py')
+#os.system('python database.py')
 #os.system('python trainMessages.py')
 
 
