@@ -22,6 +22,6 @@ for index, result in enumerate(results):
         "patterns": [data["message"]],
         "responses": [data["message"]]
     })
-print(intents)
+#print(intents)
 with open("UserMessages.json", "w") as outfile: 
     json.dump(intents, outfile)
