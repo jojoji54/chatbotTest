@@ -64,6 +64,6 @@ def response():
                 return jsonify({"response" : random.choice(intent['responses'])})
     else:
         os.system('python userDataApp.py')
-        return('???')
+        #return('???')
         
     
