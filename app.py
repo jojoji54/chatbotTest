@@ -59,8 +59,7 @@ def response():
         for intent in intents['intents']:
             if tag == intent["tag"]:
                 return jsonify({"response" : random.choice(intent['responses'])})
-    else:
-        return jsonify({"response" : "..."})
+
         
         
     
