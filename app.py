@@ -6,11 +6,8 @@ import torch
 from model import NeuralNet
 from nltk_utils import bag_of_words, tokenize
 import time
-import os
 
 app = Flask(__name__, static_url_path='');
-
-
 
 CORS(app)
 @app.route("/", methods=["GET"])
@@ -62,7 +59,8 @@ def response():
         for intent in intents['intents']:
             if tag == intent["tag"]:
                 return jsonify({"response" : random.choice(intent['responses'])})
-
+    else:
+        return
         
         
     
