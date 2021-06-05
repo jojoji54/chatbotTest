@@ -26,8 +26,8 @@ for index, result in enumerate(results):
     data = result.to_dict()
     intents["intents"].append({
         "tag": f"firebase data{index}",
-        "patterns": [data["message"]],
-        "responses": [data["message"]]
+        "patterns":   [data["messageQuestion2"],data["messageQuestion3"],data["messageQuestion4"],data["messageQuestion5"],data["messageQuestion6"],data["messageQuestion7"]],
+        "responses": [data["IAmessageQuestion8"]]
     })
 print("new data: ", len(intents['intents']))
 with open("intents.json", "w") as outfile:
