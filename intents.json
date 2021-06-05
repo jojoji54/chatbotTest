@@ -38,7 +38,7 @@
     {
       "tag": "Charlot states",
       "patterns": ["How are you? ", "How are you doing?", "How’s it going?", "How are things?", "What’s up?"],
-      "responses": ["I’m well. How are you?", "It’s going well, thank you. How are you doing?", "Fine, thanks. And yourself?"]
+      "responses": ["I’m well. How are you?", "It’s going well, thank you. How are you doing?", "Fine, thanks. and you??"]
     },
 
     {
@@ -46,7 +46,7 @@
       "patterns": [
         "Tell me a joke!",
         "Tell me something funny!",
-        "Do you know a joke?"
+        "Do you know any joke?"
       ],
       "responses": [
         "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
@@ -307,22 +307,6 @@
         "I do other things"
       ]
     },
-
-    
-    {
-      "tag": "Charlot random question 19",
-      "patterns": [
-        "When?"
-        
-        
-      ],
-      "responses": [
-        "When...? what do you mean?",
-        "???",
-        "Can you repeat plss"
-      ]
-    },
-
     {
       "tag": "Charlot random question 20",
       "patterns": [
@@ -456,37 +440,17 @@
     {
       "tag": "Good job",
       "patterns": [
-        "You’ve got it made! ",
         "Super! ",
         "That’s right! ",
         "That’s good!",
-        "You are very good at that",
-        "Good work! ",
-        "Exactly right! ",
-        "You’ve just about got it",
-        "You are doing a good job! ",
-        "That’s it!",
-        "Now you’ve figured it out. ",
         "Great!",
-        "I knew you could do it",
-        "I knew you could do",
-        "Congratulations! ",
-        "Not bad.",
-        "Keep working on it,you’re improving",
-        "Now you have it. ",
-        "You are learning fast. ",
-        "Good for you! ",
-        "Couldn’t have done it better myself.",
         "Beautiful! ",
-        "One more time and you’ll have  it.",
-        "That’s the right way to do it. ",
-        "You did it that time! ",
-        "You’re getting better and better.",
         "awesome",
         "Brilliant",
         "Epic",
         "Notable",
-        "Stellar"
+        "Stellar",
+        "Nice"
         
         
       ],
