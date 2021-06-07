@@ -22,13 +22,6 @@ CORS(app)
 def response():
     app.logger.info('start')
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    
-    global userDocumentID 
-    request_data = request.data
-    request_data = json.loads(request_data.decode('utf-8'))
-    userDocumentID = request_data('userDocumentID')
-    
-    
     app.logger.info(device)
     with open('intents.json', 'r') as json_data:
         intents = json.load(json_data)

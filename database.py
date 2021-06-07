@@ -2,7 +2,6 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 import json
-import app
 
 cred = credentials.Certificate(
     "charlotapp-firebase-adminsdk-y8n29-630f0f23a9.json")
@@ -10,11 +9,9 @@ firebase_admin.initialize_app(cred)
 
 db = firestore.client()
 
-
-
-
 # read data
 # Getting a Document with a known ID
+
 intents = {"intents": []}
 
 with open('intents.json') as json_file:
@@ -24,7 +21,7 @@ with open('intents.json') as json_file:
 
 print("old data:", len(intents['intents']))
 results = db.collection('users').document(
-    app.userDocumentID).collection('chats').get()
+    'HtregtuuDDVWglz9DjobFGH9jMo1').collection('chats').get()
 for index, result in enumerate(results):
     data = result.to_dict()
     intents["intents"].append({
