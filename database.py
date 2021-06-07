@@ -21,7 +21,7 @@ with open('intents.json') as json_file:
 
 print("old data:", len(intents['intents']))
 results = db.collection('users').document(
-    'HtregtuuDDVWglz9DjobFGH9jMo1').collection('chats').get()
+    'Peo5kqpi4GORXehD3oQVRXpHGfD2').collection('chats').get()
 for index, result in enumerate(results):
     data = result.to_dict()
     intents["intents"].append({
