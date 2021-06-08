@@ -12,8 +12,11 @@
             "responses": [
                 "Hey :-)",
                 "Hello",
-                "Hi there, what can I do for you?",
-                "Hi there, how can I help?"
+                "Hi there",
+                "Hiya",
+                "How’s it going?",
+                "What’s up!",
+                "Long time no see!"
             ]
         },
         {
@@ -21,12 +24,25 @@
             "patterns": [
                 "Bye",
                 "See you later",
-                "Goodbye"
+                "Goodbye",
+                "Bye bye! ",
+                "I’m off",
+                "Have a nice day",
+                "Take care"
             ],
             "responses": [
-                "See you later, thanks for visiting",
+                "See you later",
                 "Have a nice day",
-                "Bye! Come back again soon."
+                "Bye! Come back again soon.",
+                "Ta ra!",
+                "Cheerio!!",
+                "Bye-bye! ",
+                "See you soon!",
+                "Catch up some time",
+                "Catch you later!",
+                "So long!",
+                "Ciao!",
+                "Adios!"
             ]
         },
         {
@@ -340,6 +356,19 @@
                 "Thanks a million.",
                 "jejej",
                 ":)"
+            ]
+        },
+        {
+            "tag": "No Answer",
+            "patterns": [
+
+            ],
+            "responses": [
+                "...",
+                "mmmmm",
+                "jum",
+                ":O",
+                "._."
             ]
         }
     ]
