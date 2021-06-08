@@ -357,19 +357,6 @@
                 "jejej",
                 ":)"
             ]
-        },
-        {
-            "tag": "No Answer",
-            "patterns": [
-
-            ],
-            "responses": [
-                "...",
-                "mmmmm",
-                "jum",
-                ":O",
-                "._."
-            ]
         }
     ]
 }
