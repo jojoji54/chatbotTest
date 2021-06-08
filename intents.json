@@ -358,6 +358,21 @@
                 "jejej",
                 ":)"
             ]
+        },
+        {
+            "tag": "Some laughs",
+            "patterns": [
+                "jejej ",
+                "xD",
+                "jajaj",
+                "LOL"
+            ],
+            "responses": [
+                "jejej ",
+                "xD",
+                "jajaj"
+                
+            ]
         }
     ]
 }

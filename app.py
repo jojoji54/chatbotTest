@@ -57,13 +57,14 @@ def response():
     probs = torch.softmax(output, dim=1)
     prob = probs[0][predicted.item()]
     
-    if prob.item() > 0.77:
+    if prob.item() > 0.80:
         app.logger.info('%d logged in successfully', prob.item())
         app.logger.info(intents['intents'])
         for intent in intents['intents']:
             if tag == intent["tag"]:
                 if intent["tag"] == "goodbye": 
                  os.system('python database.py')
+                 os.system('python randomDatabase.py')
                  os.system('python train.py')
                  return jsonify({"response" : "Bye :)"})  
                 else:
