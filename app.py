@@ -65,9 +65,11 @@ def response():
                 if intent["tag"] == "goodbye": 
                  os.system('python database.py')
                  os.system('python train.py')
-                 return jsonify({"response" : "Bye :)"})  
+                 return jsonify({"response" : random.choice(intent['responses'])})  
                 else:
                  return jsonify({"response" : random.choice(intent['responses'])})  
                    
     else:
-        return jsonify({"response" : "..."})
+        for intent in intents['intents']:
+            for tag in intents['tag : "No Answer']:
+                return jsonify({"response" : random.choice(intent['responses'])})  
