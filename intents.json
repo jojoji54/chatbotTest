@@ -15,8 +15,8 @@
                 "Hello",
                 "Hi there",
                 "Hiya",
-                "How’s it going?",
-                "What’s up!",
+                "How\u00e2\u20ac\u2122s it going?",
+                "What\u00e2\u20ac\u2122s up!",
                 "Long time no see!"
             ]
         },
@@ -27,7 +27,7 @@
                 "See you later",
                 "Goodbye",
                 "Bye bye! ",
-                "I’m off",
+                "I\u00e2\u20ac\u2122m off",
                 "Have a nice day",
                 "Take care"
             ],
@@ -371,8 +371,8 @@
                 "jejej ",
                 "xD",
                 "jajaj"
-                
             ]
         }
+        
     ]
 }
