@@ -27,8 +27,6 @@ def response():
         intents = json.load(json_data)
     app.logger.info(intents)
     FILE = "data.pth"
-    os.system('python database.py')
-    os.system('python randomDatabase.py')
     data = torch.load(FILE)
     app.logger.info(data)
     input_size = data["input_size"]
@@ -67,10 +65,12 @@ def response():
                 if intent["tag"] == "goodbye": 
                  os.system('python database.py')
                  os.system('python randomDatabase.py')
-                 os.system('python train.py')
                  return jsonify({"response" : random.choice(intent['responses'])})  
+                elif intent["tag"] == "greeting": 
+                    os.system('python train.py')
+                    return jsonify({"response" : random.choice(intent['responses'])})  
                 else:
-                 return jsonify({"response" : random.choice(intent['responses'])})  
+                     return jsonify({"response" : random.choice(intent['responses'])})  
                    
     else:
         return jsonify({"response" : "..."})
