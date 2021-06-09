@@ -1,6 +1,6 @@
 import random
 import json
-from flask import Flask, jsonify,request
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 import torch
 from model import NeuralNet
@@ -8,16 +8,22 @@ from nltk_utils import bag_of_words, tokenize
 import time
 import os
 
-app = Flask(__name__, static_url_path='');
+app = Flask(__name__, static_url_path='')
 # os.system('python database.py')
 # os.system('python train.py')
 
 
 CORS(app)
+
+
 @app.route("/", methods=["GET"])
 def home():
     return '<h1>Demo</h1>'
+
+
 CORS(app)
+
+
 @app.route("/bot", methods=["POST"])
 def response():
     app.logger.info('start')
@@ -41,34 +47,34 @@ def response():
     model.eval()
     # return '<h2>sdfjk</h2>'
     query = dict(request.form)['query']
-    
 
-    res = query 
-    res =  tokenize(res)
-    
+    res = query
+    res = tokenize(res)
+
     X = bag_of_words(res, all_words)
     X = X.reshape(1, X.shape[0])
     X = torch.from_numpy(X).to(device)
-    
+
     output = model(X)
     _, predicted = torch.max(output, dim=1)
     tag = tags[predicted.item()]
-    
+
     probs = torch.softmax(output, dim=1)
     prob = probs[0][predicted.item()]
-    
+
     if prob.item() > 0.70:
         app.logger.info('%d logged in successfully', prob.item())
         app.logger.info(intents['intents'])
         for intent in intents['intents']:
-            if tag == intent["tag"]:
-                if intent["tag"] == "goodbye": 
-                 os.system('python database.py')
-                 os.system('python randomDatabase.py')
-                 os.system('python train.py')
-                 return jsonify({"response" : "Bye :)"})  
-                else:
-                 return jsonify({"response" : random.choice(intent['responses'])})  
-                   
+            if tag != intent["tag"] == "goodbye":
+
+                return jsonify({"response": random.choice(intent['responses'])})
+
+            else:
+                os.system('python database.py')
+                os.system('python randomDatabase.py')
+                os.system('python train.py')
+                return jsonify({"response": "Bye :)"})
+
     else:
-        return jsonify({"response" : "..."})
+        return jsonify({"response": "..."})
