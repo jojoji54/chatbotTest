@@ -25,7 +25,7 @@ results = db.collection('users').document(
 for index, result in enumerate(results):
     data = result.to_dict()
     intents["intents"].append({
-        "tag": f"firebase data{index}",
+        "tag": f"firebaseRandomData{index}",
         "patterns":   [data["message"]],
         "responses":  [data["IAmessageAnswer1"],data["IAmessageAnswer2"],data["IAmessageAnswer3"],data["IAmessageAnswer4"],data["IAmessageAnswer5"],data["IAmessageAnswer6"]],
     })
