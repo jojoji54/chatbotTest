@@ -27,7 +27,7 @@
                 "See you later",
                 "Goodbye",
                 "Bye bye! ",
-                "I\u00e2\u20ac\u2122m off",
+                "Im off",
                 "Have a nice day",
                 "Take care"
             ],
@@ -118,7 +118,7 @@
             ],
             "responses": [
                 "I'm from Vasque Country",
-                "I'm from Hugo's computer",
+                "I'm from Hugos computer",
                 "I'm from anywhere'"
             ]
         },
