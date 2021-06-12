@@ -63,11 +63,11 @@ def response():
         for intent in intents['intents']:
             if tag == intent["tag"]:
                 if intent["tag"] == "goodbye": 
-                    os.system('python train.py')
-                    return jsonify({"response" : random.choice(intent['responses'])})  
-                # elif intent["tag"] == "greeting": 
-                #     os.system('python train.py')
-                #     return jsonify({"response" : random.choice(intent['responses'])})  
+                    exec(open("train.py").read())
+                    return jsonify({"response" : random.choice(intent['responses'])})   
+                # elif intent["tag"] == "goodbye": 
+                #      os.system('python train.py')
+                #      return jsonify({"response" : train.epoch})  
                 else:
                      return jsonify({"response" : random.choice(intent['responses'])})  
                    
