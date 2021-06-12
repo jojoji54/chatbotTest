@@ -60,4 +60,3 @@ rsa==4.7.2
 uritemplate==3.0.1
 urllib3==1.26.5
 wrapt==1.12.1
-aiofiles==0.7.0
