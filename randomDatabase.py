@@ -13,22 +13,28 @@ db = firestore.client()
 # Getting a Document with a known ID
 
 intents = {"intents": []}
+detect_duplicate_by_tag = []
 
 with open('intents.json') as json_file:
     olddata = json.load(json_file)
     for ob in olddata['intents']:
-        intents['intents'].append(ob)
+        if not (ob["tag"] in detect_duplicate_by_tag):
+            intents['intents'].append(ob)
+            detect_duplicate_by_tag.append(ob["tag"])
 
 print("old data:", len(intents['intents']))
 results = db.collection('users').document(
     'Peo5kqpi4GORXehD3oQVRXpHGfD2').collection('chatsRandom').get()
 for index, result in enumerate(results):
     data = result.to_dict()
-    intents["intents"].append({
-        "tag": f"firebaseRandomData{index}",
-        "patterns":   [data["message"]],
-        "responses":  [data["IAmessageAnswer1"],data["IAmessageAnswer2"],data["IAmessageAnswer3"],data["IAmessageAnswer4"],data["IAmessageAnswer5"],data["IAmessageAnswer6"]],
-    })
+    if not (f"firebaseRandomdata{index}" in detect_duplicate_by_tag):
+        intents["intents"].append({
+            "tag": f"firebaseRandomdata{index}",
+            "patterns":   [data["message"]],
+            "responses":  [data["IAmessageAnswer1"],data["IAmessageAnswer2"],data["IAmessageAnswer3"],data["IAmessageAnswer4"],data["IAmessageAnswer5"],data["IAmessageAnswer6"]],
+        })
+        detect_duplicate_by_tag.append(f"firebaseRandomdata{index}")
+
 print("new data: ", len(intents['intents']))
 with open("intents.json", "w") as outfile:
     json.dump(intents, outfile)
