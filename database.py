@@ -30,7 +30,7 @@ for index, result in enumerate(results):
     if not (f"firebase data{index}" in detect_duplicate_by_tag):
         intents["intents"].append({
             "tag": f"firebase data{index}",
-            "patterns":   [data["messageQuestion2"], data["messageQuestion3"], data["messageQuestion4"], data["messageQuestion5"], data["messageQuestion6"], data["messageQuestion7"]],
+            "patterns":   [data["messageQuestion2"], data["messageQuestion3"], data["messageQuestion4"], data["messageQuestion5"], data["messageQuestion6"], data["messageQuestion7"], data["messageQuestion15"]],
             "responses": [data["IAmessageQuestion8"], data["IAmessageQuestion9"], data["IAmessageQuestion10"], data["IAmessageQuestion11"], data["IAmessageQuestion12"], data["IAmessageQuestion13"], data["IAmessageQuestion14"]]
         })
         detect_duplicate_by_tag.append(f"firebase data{index}")
