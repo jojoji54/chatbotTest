@@ -10,7 +10,7 @@ import os
 
 
 app = Flask(__name__, static_url_path='')
-global epoch
+#global epoch
 # os.system('python database.py')
 # os.system('python train.py')
 
@@ -70,10 +70,10 @@ def response():
         for intent in intents['intents']:
             if tag == intent["tag"]:
                 if intent["tag"] == "goodbye":
-                   # os.system('python database.py')
-                   #os.system('python randomDatabase.py')
+                    f = open("database.py")
+                    f = open("randomDatabase.py")
                    # os.system('python train.py')
-                    return jsonify({"response": "See you :)"}) & os.system('python train.py')
+                    return jsonify({"response": random.choice(intent['responses'])}) & os.system('python train.py')
                 # elif intent["tag"] == "goodbye":
                 #      os.system('python train.py')
                 #      return jsonify({"response" : train.epoch})
