@@ -63,16 +63,10 @@ def response():
         app.logger.info(intents['intents'])
         for intent in intents['intents']:
             if tag == intent["tag"]:
-                if intent["tag"] == "goodbye":
-                    jsonify({"response" : 'Oh, are you going ? okey, I´m going to learn new data...'})   
+                if intent["tag"] == "goodbye": 
                     os.system('python database.py')
-                    jsonify({"response" : '1º -> Getting new data: OK'})   
-                    os.system('python randomDatabase.py') 
-                    jsonify({"response" : '2º -> Learning new data: OK'})   
+                    os.system('python randomDatabase.py')  
                     os.system('python train.py')
-                    jsonify({"response" : '3º -> Training new data: OK'}) 
-                    jsonify({"response" : 'PERFECT ! '}) 
-                    jsonify({"response" : ' .......  '}) 
                     return jsonify({"response" : random.choice(intent['responses'])})   
                 # elif intent["tag"] == "goodbye": 
                 #      os.system('python train.py')
