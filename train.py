@@ -10,8 +10,9 @@ from torch.utils.data import Dataset, DataLoader
 from nltk_utils import bag_of_words, tokenize, stem
 from model import NeuralNet
 
-os.system('python database.py')
-os.system('python randomDatabase.py')
+# os.system('python database.py')
+# os.system('python randomDatabase.py')
+#global epoch
 
 with open('intents.json', 'r') as f:
     intents = json.load(f)
@@ -114,6 +115,7 @@ for epoch in range(num_epochs):
         
     if (epoch+1) % 100 == 0:
         print (f'Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}')
+        #epoch = f'Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}';
 
 
 print(f'final loss: {loss.item():.4f}')
