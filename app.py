@@ -7,7 +7,6 @@ from model import NeuralNet
 from nltk_utils import bag_of_words, tokenize
 import time
 import os
-import aiofiles
 
 app = Flask(__name__, static_url_path='')
 global epoch
@@ -27,7 +26,7 @@ CORS(app)
 
 
 @app.route("/bot", methods=["POST"])
-async def response():
+def response():
     app.logger.info('start')
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     app.logger.info(device)
@@ -72,8 +71,8 @@ async def response():
                 if intent["tag"] == "goodbye":
                     os.system('python database.py')
                     os.system('python randomDatabase.py')
-                    async with aiofiles.open('train.py', mode='r'):
-                     return jsonify({"response": random.choice(intent['responses'])})
+                    os.system('python train.py')
+                    return jsonify({"response": random.choice(intent['responses'])})
                 # elif intent["tag"] == "goodbye":
                 #      os.system('python train.py')
                 #      return jsonify({"response" : train.epoch})
@@ -82,3 +81,4 @@ async def response():
 
     else:
         return jsonify({"response": "..."})
+
