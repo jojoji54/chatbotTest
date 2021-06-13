@@ -1,1 +1,81 @@
-{"intents": [{"tag": "greeting", "patterns": ["Hi", "Hey", "Is anyone there?", "Hello", "Good day", "charlot"], "responses": ["Hey :-)", "Hello", "Hi there", "Hiya", "How are you going?", "Whats up!", "Long time no see!"]}, {"tag": "goodbye", "patterns": ["Bye", "See you later", "Goodbye", "Bye bye! ", "Im off", "Have a nice day", "Take care"], "responses": ["See you later", "Have a nice day", "Bye! Come back again soon.", "Ta ra!", "Cheerio!!", "Bye-bye! ", "See you soon!", "Catch up some time", "Catch you later!", "So long!", "Ciao!", "Adios!"]}, {"tag": "Charlot presentations", "patterns": ["What is your name?", "Your name is?", "What name do you have?"], "responses": ["I'm Charlot", "My name is Charlot", "I am Charlot :)"]}, {"tag": "thanks", "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"], "responses": ["Happy to help!", "Any time!", "My pleasure"]}, {"tag": "Charlot states", "patterns": ["How are you? ", "How are you doing?", "How is it going?", "How are things?", "Whats up?"], "responses": ["Im well. How are you?", "Its going well, thank you. How are you doing?", "Fine, thanks, and you??"]}]}
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Hi",
+                "Hey",
+                "Hello",
+                "charlot"
+            ],
+            "responses": [
+                "Hey :-)",
+                "Hello",
+                "Hi there",
+                "Hiya",
+                "How are you going?",
+                "Whats up!",
+                "Long time no see!"
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "Bye",
+                "See you later",
+                "Goodbye",
+                "Bye bye! "
+            ],
+            "responses": [
+                "See you later",
+                "Have a nice day",
+                "Bye! Come back again soon.",
+                "Ta ra!",
+                "Cheerio!!",
+                "Bye-bye! ",
+                "See you soon!",
+                "Catch up some time",
+                "Catch you later!",
+                "So long!",
+                "Ciao!",
+                "Adios!"
+            ]
+        },
+        {
+            "tag": "Charlot presentations",
+            "patterns": [
+                "What is your name?",
+                "Your name is?"
+            ],
+            "responses": [
+                "I'm Charlot",
+                "My name is Charlot",
+                "I am Charlot :)"
+            ]
+        },
+        {
+            "tag": "thanks",
+            "patterns": [
+                "Thanks",
+                "Thank you"
+            ],
+            "responses": [
+                "Happy to help!",
+                "Any time!",
+                "My pleasure"
+            ]
+        },
+        {
+            "tag": "CharlotStates",
+            "patterns": [
+                "How are you? ",
+                "How are you doing?"
+            ],
+            "responses": [
+                "Im well. How are you?",
+                "Its going well, thank you. How are you doing?",
+                "Fine, thanks, and you??"
+            ]
+        }
+    ]
+}
