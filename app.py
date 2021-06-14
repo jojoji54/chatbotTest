@@ -89,4 +89,4 @@ def response():
     #     return jsonify({"response": random.choice(['I siee...', 'mmmmmm', 'ops..', 'O_O'])}) 
 
     else:
-        return jsonify({"response": random.choice(['\N{grinning face}', '\N{slightly smiling face}'])})
+        return jsonify({"response": random.choice(['I siee...', 'mmmmmm', 'ops..', '\N{slightly smiling face} \N{slightly smiling face} \N{slightly smiling face}', 'jumm..', 'okeyyy', 'ok', 'tell me more', '\N{thinking face} \N{thinking face}', '\N{face without mouth} ', '\N{lying face} \N{lying face}  jajaj', '\N{relieved face} \N{relieved face}', '\N{OK hand} \N{OK hand} \N{OK hand} \N{OK hand}', '\N{face with open mouth} \N{face with open mouth} \N{face with open mouth}', 'ou \N{flexed biceps} \N{flexed biceps}' , '.. \N{eyes} \N{eyes} ...'  ])})
