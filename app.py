@@ -8,6 +8,7 @@ from model import NeuralNet
 from nltk_utils import bag_of_words, tokenize
 import time
 import os
+import emoji
 
 
 app = Flask(__name__, static_url_path='')
