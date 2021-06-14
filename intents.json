@@ -4,7 +4,6 @@
             "tag": "greeting",
             "patterns": [
                 "Hi",
-                "Hey",
                 "Hello",
                 "charlot"
             ],
@@ -42,7 +41,7 @@
             ]
         },
         {
-            "tag": "Charlot presentations",
+            "tag": "CharlotPresentations",
             "patterns": [
                 "What is your name?",
                 "Your name is?"
@@ -68,8 +67,7 @@
         {
             "tag": "CharlotStates",
             "patterns": [
-                "How are you? ",
-                "How are you doing?"
+                "How are you? "
             ],
             "responses": [
                 "Im well. How are you?",
