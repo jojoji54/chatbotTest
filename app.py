@@ -82,10 +82,10 @@ def response():
                 else:
                     return jsonify({"response": random.choice(intent['responses'])})
                 
-    elif prob.item() > 0.50 < 0.70:
-        app.logger.info('%d logged in successfully', prob.item())
-        app.logger.info(intents['intents'])
-        return jsonify({"response": random.choice(['I siee...', 'mmmmmm', 'ops..', 'O_O'])}) 
+    # elif prob.item() > 0.50 < 0.70:
+    #     app.logger.info('%d logged in successfully', prob.item())
+    #     app.logger.info(intents['intents'])
+    #     return jsonify({"response": random.choice(['I siee...', 'mmmmmm', 'ops..', 'O_O'])}) 
 
     else:
-        return jsonify({"response": "..."})
+        return jsonify({"response": random.choice(['I siee...', 'mmmmmm', 'ops..', 'O_O', 'jumm..', 'okeyyy', 'ok', 'tell me more'])})
