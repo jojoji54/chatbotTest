@@ -65,7 +65,7 @@ def response():
     probs = torch.softmax(output, dim=1)
     prob = probs[0][predicted.item()]
 
-    if prob.item() > 0.70:
+    if prob.item() > 0.60:
         app.logger.info('%d logged in successfully', prob.item())
         app.logger.info(intents['intents'])
         for intent in intents['intents']:
@@ -80,10 +80,6 @@ def response():
                 #      return jsonify({"response" : train.epoch})
                 else:
                     return jsonify({"response": random.choice(intent['responses'])})
-    elif prob.item() > 0.50 < 0.70:
-        app.logger.info('%d logged in successfully', prob.item())
-        app.logger.info(intents['intents'])
-        return jsonify({"response": random.choice(['I siee...', 'mmmmmm', 'ops..', 'O_O'])}) 
 
     else:
         return jsonify({"response": "..."})
