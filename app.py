@@ -73,14 +73,15 @@ def response():
                 if intent["tag"] == "goodbye":
                     f = open("database.py")
                     f = open("randomDatabase.py")
-                    f = open("train.py")
-                   # os.system('python train.py')
+                    #f = open("train.py")
+                    os.system('python train.py')
                     return jsonify({"response": random.choice(intent['responses'])})
                 # elif intent["tag"] == "goodbye":
                 #      os.system('python train.py')
                 #      return jsonify({"response" : train.epoch})
                 else:
                     return jsonify({"response": random.choice(intent['responses'])})
+                
     elif prob.item() > 0.50 < 0.70:
         app.logger.info('%d logged in successfully', prob.item())
         app.logger.info(intents['intents'])
