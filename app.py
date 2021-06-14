@@ -88,4 +88,4 @@ def response():
     #     return jsonify({"response": random.choice(['I siee...', 'mmmmmm', 'ops..', 'O_O'])}) 
 
     else:
-        return jsonify({"response": random.choice(['I siee...', 'mmmmmm', 'ops..', 'O_O', 'jumm..', 'okeyyy', 'ok', 'tell me more'])})
+        return jsonify({"response": ':face savoring food:'})
