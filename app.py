@@ -72,8 +72,9 @@ def response():
                 if intent["tag"] == "goodbye":
                     f = open("database.py")
                     f = open("randomDatabase.py")
+                    f = open("train.py")
                    # os.system('python train.py')
-                    return jsonify({"response": random.choice(intent['responses'])}) & os.system('python train.py')
+                    return jsonify({"response": random.choice(intent['responses'])})
                 # elif intent["tag"] == "goodbye":
                 #      os.system('python train.py')
                 #      return jsonify({"response" : train.epoch})
