@@ -89,4 +89,4 @@ def response():
     #     return jsonify({"response": random.choice(['I siee...', 'mmmmmm', 'ops..', 'O_O'])}) 
 
     else:
-        return jsonify({"response": ':face savoring food:'})
+        return jsonify({"response": emoji.emojize[':thumbs_up:',':smiling face:']})
