@@ -11,7 +11,7 @@ from nltk_utils import bag_of_words, tokenize, stem
 from model import NeuralNet
 
 os.system('python database.py')
-os.system('python randomDatabase.py')
+#os.system('python randomDatabase.py')
 #global epoch
 
 with open('intents.json', 'r') as f:
