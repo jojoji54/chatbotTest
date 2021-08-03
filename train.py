@@ -10,33 +10,37 @@ from torch.utils.data import Dataset, DataLoader
 from nltk_utils import bag_of_words, tokenize, stem
 from model import NeuralNet
 
-os.system('python database.py')
-#os.system('python randomDatabase.py')
+# os.system('python database.py')
+# os.system('python randomDatabase.py')
 #global epoch
+os.remove('data.pth')
 
+#Es en este archivo en donde entrenamos nla IA para que sea capaz de reconocer los comandos del archivo de json
+
+#Abro el archivo json que es el archivo que tiene los comandos
 with open('intents.json', 'r') as f:
     intents = json.load(f)
 
 all_words = []
 tags = []
 xy = []
-# loop through each sentence in our intents patterns
+# Navego en bucle a traves del fichero json viendo las etiquestas "intents" "patterns"
 for intent in intents['intents']:
     tag = intent['tag']
-    # add to tag list
+    # Lo añado a la lista tag
     tags.append(tag)
     for pattern in intent['patterns']:
-        # tokenize each word in the sentence
+        #Tokenizo cada palabra de la frase
         w = tokenize(pattern)
-        # add to our words list
+        # Lo añado a mi bolsa de palabras
         all_words.extend(w)
-        # add to xy pair
+        # Lo añado a mi pareja xy
         xy.append((w, tag))
 
-# stem and lower each word
+# Stem y lo pongo en letras minusculas cada palabra
 ignore_words = ['?', '.', '!', ',']
 all_words = [stem(w) for w in all_words if w not in ignore_words]
-# remove duplicates and sort
+# remuevo las entradas duplicadas
 all_words = sorted(set(all_words))
 tags = sorted(set(tags))
 
@@ -44,21 +48,21 @@ print(len(xy), "patterns")
 print(len(tags), "tags:", tags)
 print(len(all_words), "unique stemmed words:", all_words)
 
-# create training data
+# creo los datos entrenados
 X_train = []
 y_train = []
 for (pattern_sentence, tag) in xy:
-    # X: bag of words for each pattern_sentence
+    # X: una bolsa de palabras para cada patron_farse 
     bag = bag_of_words(pattern_sentence, all_words)
     X_train.append(bag)
-    # y: PyTorch CrossEntropyLoss needs only class labels, not one-hot
+    # y: PyTorch CrossEntropyLoss solo necesita la clase de labels, no otra
     label = tags.index(tag)
     y_train.append(label)
 
 X_train = np.array(X_train)
 y_train = np.array(y_train)
 
-# Hyper-parameters 
+# hiperparámetros
 num_epochs = 3000
 batch_size = 8
 learning_rate = 0.001
@@ -74,11 +78,11 @@ class ChatDataset(Dataset):
         self.x_data = X_train
         self.y_data = y_train
 
-    # support indexing such that dataset[i] can be used to get i-th sample
+    #soporta los datos del dataset[i] de forma indexa, lo podemos usar para obtener por ejemplo parametros del estilo i-th 
     def __getitem__(self, index):
         return self.x_data[index], self.y_data[index]
 
-    # we can call len(dataset) to return the size
+    # Podemos llamar a la longitud del dataset para calcular el tamaño
     def __len__(self):
         return self.n_samples
 
@@ -92,23 +96,23 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 model = NeuralNet(input_size, hidden_size, output_size).to(device)
 
-# Loss and optimizer
+# Loss y el optimizador
 criterion = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
-# Train the model
+# modelo del entrenamiento
 for epoch in range(num_epochs):
     for (words, labels) in train_loader:
         words = words.to(device)
         labels = labels.to(dtype=torch.long).to(device)
         
-        # Forward pass
+        # Pase adelantado
         outputs = model(words)
-        # if y would be one-hot, we must apply
+        # si fuera on-hot, debemos aplicar
         # labels = torch.max(labels, 1)[1]
         loss = criterion(outputs, labels)
         
-        # Backward and optimize
+        # Retroceder y optimizar
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
