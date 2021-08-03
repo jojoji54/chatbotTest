@@ -73,7 +73,7 @@ def response():
             if tag == intent["tag"]:
                 if intent["tag"] == "goodbye":
                     f = open("database.py")
-                    f = open("randomDatabase.py")
+                    # f = open("randomDatabase.py")
                     #f = open("train.py")
                     os.system('python train.py')
                     return jsonify({"response": random.choice(intent['responses'])})
