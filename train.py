@@ -67,7 +67,7 @@ num_epochs = 2000
 batch_size = 1
 learning_rate = 0.001
 input_size = len(X_train[0])
-hidden_size = 100
+hidden_size = 10
 output_size = len(tags)
 print(input_size, output_size)
 
