@@ -63,11 +63,14 @@ X_train = np.array(X_train)
 y_train = np.array(y_train)
 
 # hiperparámetros
-num_epochs = 2000
-batch_size = 1
+num_epochs = 3000
+batch_size = 8
 learning_rate = 0.001
 input_size = len(X_train[0])
-hidden_size = 50
+hidden_size = 8
+hidden_size2 = 8
+hidden_size3 = 8
+
 output_size = len(tags)
 print(input_size, output_size)
 
@@ -82,7 +85,7 @@ class ChatDataset(Dataset):
     def __getitem__(self, index):
         return self.x_data[index], self.y_data[index]
 
-    # Podemos llamar a la longitud del dataset para calcular el tamaños
+    # Podemos llamar a la longitud del dataset para calcular el tamaño
     def __len__(self):
         return self.n_samples
 
@@ -94,7 +97,7 @@ train_loader = DataLoader(dataset=dataset,
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-model = NeuralNet(input_size, hidden_size, output_size).to(device)
+model = NeuralNet(input_size, hidden_size,hidden_size2,hidden_size3, output_size).to(device)
 
 # Loss y el optimizador
 criterion = nn.CrossEntropyLoss()
@@ -128,6 +131,8 @@ data = {
 "model_state": model.state_dict(),
 "input_size": input_size,
 "hidden_size": hidden_size,
+"hidden_size2": hidden_size2,
+"hidden_size3": hidden_size3,
 "output_size": output_size,
 "all_words": all_words,
 "tags": tags
