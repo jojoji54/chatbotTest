@@ -43,16 +43,12 @@ def response():
     app.logger.info(data)
     input_size = data["input_size"]#recogo el tamaño de los datos de entrada
     hidden_size = data["hidden_size"]
-    hidden_size2 = data["hidden_size2"]
-    hidden_size3 = data["hidden_size3"]
-    hidden_size4 = data["hidden_size4"]
-    hidden_size5 = data["hidden_size5"]
     output_size = data["output_size"] #recogo el tamaño de los datos de salida
     all_words = data['all_words'] #la bolsa de palabras del archivo entrenado
     tags = data['tags'] #las etiquetas tag del archivo entrenado
     model_state = data["model_state"] #El modelo de datos del archivo emtrenad
 
-    model = NeuralNet(input_size, hidden_size, hidden_size2, hidden_size3,hidden_size4, hidden_size5, output_size).to(device) #Selecciono los datos que voy ha utilizar
+    model = NeuralNet(input_size, hidden_size, output_size).to(device) #Selecciono los datos que voy ha utilizar
     model.load_state_dict(model_state)
     model.eval() #Evaluo los datos del modelo
     # return '<h2>sdfjk</h2>'
@@ -78,9 +74,8 @@ def response():
         for intent in intents['intents']:
             if tag == intent["tag"]:
                 if intent["tag"] == "goodbye":
-                    os.system('python database.py')
-                   # f = open("database.py")
-                    #f = open("randomDatabase.py")
+                    f = open("database.py")
+                    f = open("randomDatabase.py")
                     #f = open("train.py")
                     os.system('python train.py')
                     return jsonify({"response": random.choice(intent['responses'])})
@@ -98,4 +93,4 @@ def response():
     else:
         #return jsonify({"response": random.choice(['I siee...', 'mmmmmm', 'ops..', 'O_O', 'jumm..', 'okeyyy', 'ok', 'tell me more'])})
         #return jsonify({"response": random.choice(['I siee...', 'mmmmmm', ', 'jumm..', 'okeyyy', 'ok', 'tell me more', '\N{thinking face} \N{thinking face}', '\N{face without mouth} ', '\N{lying face} \N{lying face}  jajaj', '\N{relieved face} \N{relieved face}', '\N{OK hand} \N{OK hand} \N{OK hand} \N{OK hand}', '\N{face with open mouth} \N{face with open mouth} \N{face with open mouth}', 'ou \N{flexed biceps} \N{flexed biceps}' , '.. \N{eyes} \N{eyes} ...'  ])})
-        return jsonify({"response": random.choice(['I siee...', 'mmmmmm', 'ops..', 'O_O', 'jumm..', 'okeyyy', 'ok', 'tell me more', '\N{slightly smiling face} \N{slightly smiling face} \N{slightly smiling face}', '\N{thinking face} \N{thinking face}', '\N{face without mouth} ',  '\N{lying face} \N{lying face}  jajaj', '\N{relieved face} \N{relieved face}', '\N{face with open mouth} \N{face with open mouth} \N{face with open mouth}', 'ou \N{flexed biceps} \N{flexed biceps}' , ' \N{eyes} \N{eyes} '])})
+        return jsonify({"response": random.choice(['I siee...', 'mmmmmm', 'ops..', 'O_O', 'jumm..', 'okeyyy', 'ok', 'tell me more', '\N{slightly smiling face} \N{slightly smiling face} \N{slightly smiling face}', '\N{thinking face} \N{thinking face}', '\N{face without mouth} ',  '\N{lying face} \N{lying face}  jajaj', '\N{relieved face} \N{relieved face}', '\N{face with open mouth} \N{face with open mouth} \N{face with open mouth}', 'ou \N{flexed biceps} \N{flexed biceps}' , '.. \N{eyes} \N{eyes} ...'])})
