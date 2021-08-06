@@ -62,14 +62,16 @@ for (pattern_sentence, tag) in xy:
 X_train = np.array(X_train)
 y_train = np.array(y_train)
 
-# hiperparámetross
+# hiperparámetros
 num_epochs = 1500
 batch_size = 1
 learning_rate = 0.001
 input_size = len(X_train[0])
-hidden_size = 32
-hidden_size2 = 32
-hidden_size3 = 32
+hidden_size = 8
+hidden_size2 = 8
+hidden_size3 = 8
+hidden_size4 = 8
+hidden_size5 = 8
 
 output_size = len(tags)
 print(input_size, output_size)
@@ -97,7 +99,7 @@ train_loader = DataLoader(dataset=dataset,
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-model = NeuralNet(input_size, hidden_size,hidden_size2,hidden_size3, output_size).to(device)
+model = NeuralNet(input_size, hidden_size,hidden_size2,hidden_size3,hidden_size4,hidden_size5, output_size).to(device)
 
 # Loss y el optimizador
 criterion = nn.CrossEntropyLoss()
@@ -133,6 +135,8 @@ data = {
 "hidden_size": hidden_size,
 "hidden_size2": hidden_size2,
 "hidden_size3": hidden_size3,
+"hidden_size4": hidden_size4,
+"hidden_size5": hidden_size5,
 "output_size": output_size,
 "all_words": all_words,
 "tags": tags

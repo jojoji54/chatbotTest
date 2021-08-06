@@ -45,12 +45,14 @@ def response():
     hidden_size = data["hidden_size"]
     hidden_size2 = data["hidden_size2"]
     hidden_size3 = data["hidden_size3"]
+    hidden_size4 = data["hidden_size4"]
+    hidden_size5 = data["hidden_size5"]
     output_size = data["output_size"] #recogo el tamaño de los datos de salida
     all_words = data['all_words'] #la bolsa de palabras del archivo entrenado
     tags = data['tags'] #las etiquetas tag del archivo entrenado
     model_state = data["model_state"] #El modelo de datos del archivo emtrenad
 
-    model = NeuralNet(input_size, hidden_size, hidden_size2, hidden_size3, output_size).to(device) #Selecciono los datos que voy ha utilizar
+    model = NeuralNet(input_size, hidden_size, hidden_size2, hidden_size3,hidden_size4, hidden_size5, output_size).to(device) #Selecciono los datos que voy ha utilizar
     model.load_state_dict(model_state)
     model.eval() #Evaluo los datos del modelo
     # return '<h2>sdfjk</h2>'
@@ -70,7 +72,7 @@ def response():
     probs = torch.softmax(output, dim=1)
     prob = probs[0][predicted.item()] #ya seleccionadas las etiquetas miro la que mas probabilidad de que sea tenga
 
-    if prob.item() > 0.85: #Si el comando tiene una probabilidad de que sea la acertada de mas del 70%....
+    if prob.item() > 0.70: #Si el comando tiene una probabilidad de que sea la acertada de mas del 70%....
         app.logger.info('%d logged in successfully', prob.item())
         app.logger.info(intents['intents'])
         for intent in intents['intents']:
