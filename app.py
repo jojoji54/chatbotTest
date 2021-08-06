@@ -70,7 +70,7 @@ def response():
     probs = torch.softmax(output, dim=1)
     prob = probs[0][predicted.item()] #ya seleccionadas las etiquetas miro la que mas probabilidad de que sea tenga
 
-    if prob.item() > 0.70: #Si el comando tiene una probabilidad de que sea la acertada de mas del 70%....
+    if prob.item() > 0.85: #Si el comando tiene una probabilidad de que sea la acertada de mas del 70%....
         app.logger.info('%d logged in successfully', prob.item())
         app.logger.info(intents['intents'])
         for intent in intents['intents']:
