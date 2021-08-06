@@ -63,13 +63,13 @@ X_train = np.array(X_train)
 y_train = np.array(y_train)
 
 # hiperparámetros
-num_epochs = 3000
-batch_size = 8
+num_epochs = 2000
+batch_size = 1
 learning_rate = 0.001
 input_size = len(X_train[0])
-hidden_size = 8
-hidden_size2 = 8
-hidden_size3 = 8
+hidden_size = 32
+hidden_size2 = 32
+hidden_size3 = 32
 
 output_size = len(tags)
 print(input_size, output_size)
