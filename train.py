@@ -62,17 +62,12 @@ X_train = np.array(X_train)
 y_train = np.array(y_train)
 
 # hiperparámetros
-num_epochs = 2000
-batch_size = 1
+num_epochs = 3000
+batch_size = 5
 learning_rate = 0.001
 input_size = len(X_train[0])
-hidden_size6 = 60
-hidden_size5 = 50
-hidden_size4 = 40
-hidden_size3 = 30
-hidden_size2 = 20
-hidden_size1 = 10
-hidden_size = 5
+hidden_size6 = 18
+hidden_size = 7
 output_size = len(tags)
 print(input_size, output_size)
 
@@ -99,7 +94,7 @@ train_loader = DataLoader(dataset=dataset,
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-model = NeuralNet(input_size, hidden_size6,hidden_size5,hidden_size4,hidden_size3,hidden_size2,hidden_size1,hidden_size, output_size).to(device)
+model = NeuralNet(input_size, hidden_size6,hidden_size, output_size).to(device)
 
 # Loss y el optimizador
 criterion = nn.CrossEntropyLoss()
@@ -133,11 +128,6 @@ data = {
 "model_state": model.state_dict(),
 "input_size": input_size,
 "hidden_size6": hidden_size6,
-"hidden_size5": hidden_size5,
-"hidden_size4": hidden_size4,
-"hidden_size3": hidden_size3,
-"hidden_size2": hidden_size2,
-"hidden_size1": hidden_size1,
 "hidden_size": hidden_size,
 "output_size": output_size,
 "all_words": all_words,
