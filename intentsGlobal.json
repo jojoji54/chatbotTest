@@ -1,0 +1,27 @@
+{
+    "intents": [
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "Bye",
+                "See you later",
+                "Goodbye",
+                "Bye bye! "
+            ],
+            "responses": [
+                "See you later",
+                "Have a nice day",
+                "Bye! Come back again soon.",
+                "Ta ra!",
+                "Cheerio!!",
+                "Bye-bye! ",
+                "See you soon!",
+                "Catch up some time",
+                "Catch you later!",
+                "So long!",
+                "Ciao!",
+                "Adios!"
+            ]
+        }
+    ]
+}
