@@ -18,7 +18,6 @@ db = firestore.client()
 #usados para nada , sin embargo servira para agrandar la base de datos de la IA, este archivo recupera los datos que  serviran
 #para preguntas
 
-os.remove("intents.json")
 shutil.copy('intentsGlobal.json', 'intents.json')
 
 intents = {"intents": []} #etiqueta del archivo json
