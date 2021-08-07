@@ -75,6 +75,7 @@ def response():
         for intent in intents['intents']:
             if tag == intent["tag"]:
                 if intent["tag"] == "goodbye":
+                    os.remove("intents.json")
                     os.system('python database.py')
                    # f = open("database.py")
                     #f = open("randomDatabase.py")
