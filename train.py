@@ -67,8 +67,8 @@ num_epochs = 1500
 batch_size = 1
 learning_rate = 0.001
 input_size = len(X_train[0])
-hidden_size6 = 8 #en 10 esta bastante bien
-hidden_size = 8
+hidden_size6 = 9 #en 10 y 8 esta bastante bien
+hidden_size = 9 #en 8 esta bastante bien
 output_size = len(tags)
 print(input_size, output_size)
 
