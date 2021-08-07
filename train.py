@@ -15,6 +15,7 @@ from model import NeuralNet
 #global epoch
 
 #Es en este archivo en donde entrenamos nla IA para que sea capaz de reconocer los comandos del archivo de json
+os.remove("data.pth")
 
 #Abro el archivo json que es el archivo que tiene los comandos
 with open('intents.json', 'r') as f:
