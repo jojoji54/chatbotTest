@@ -2,6 +2,8 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 import json
+import os
+import shutil
 
 cred = credentials.Certificate(
     "charlotapp-firebase-adminsdk-y8n29-630f0f23a9.json")
@@ -15,6 +17,9 @@ db = firestore.client()
 #Para hacer mas inteligente nuestra IA tenemos que guardar dos tipos de parametros , los que van a ser usador para pregunta y los que no van a ser u
 #usados para nada , sin embargo servira para agrandar la base de datos de la IA, este archivo recupera los datos que  serviran
 #para preguntas
+
+os.remove("intents.json")
+shutil.copy('intentsGlobal.json', 'intents.json')
 
 intents = {"intents": []} #etiqueta del archivo json
 detect_duplicate_by_tag = [] #variable que se usara para no duplicar entras
