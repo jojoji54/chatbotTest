@@ -9,8 +9,7 @@ class NeuralNet(nn.Module):
         self.l2 = nn.Linear(hidden_size6, hidden_size3)
         self.l3 = nn.Linear(hidden_size3, hidden_size2) #TESTEO CON 3 CAPAS
         self.l4 = nn.Linear(hidden_size2, hidden_size) #TESTEO CON 3 CAPAS
-        self.l5 = nn.Linear(hidden_size, hidden_size)
-        self.l6 = nn.Linear(hidden_size, num_classes)
+        self.l5 = nn.Linear(hidden_size, num_classes)
         self.relu = nn.ReLU()
 
     def forward(self, x):
@@ -23,7 +22,5 @@ class NeuralNet(nn.Module):
         out = self.l4(out)
         out = self.relu(out)
         out = self.l5(out)
-        out = self.relu(out)
-        out = self.l6(out)
         # Al final no se activa y no hay softmax
         return out
