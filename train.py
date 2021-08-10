@@ -63,7 +63,7 @@ X_train = np.array(X_train)
 y_train = np.array(y_train)
 
 # hiperparámetros
-num_epochs = 9000  # en 6000 funciona muy bien
+num_epochs = 8500  # en 6000 funciona muy bien
 batch_size = 128  # en 128 Funciona muy bien
 learning_rate = 0.001
 input_size = len(X_train[0])
