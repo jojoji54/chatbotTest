@@ -1,4 +1,3 @@
-
 import random
 import json
 from flask import Flask, jsonify, request
@@ -43,13 +42,14 @@ def response():
     app.logger.info(data)
     input_size = data["input_size"]#recogo el tamaño de los datos de entrada
     hidden_size6 = data["hidden_size6"]
+    hidden_size2 = data["hidden_size2"]
     hidden_size = data["hidden_size"]
     output_size = data["output_size"] #recogo el tamaño de los datos de salida
     all_words = data['all_words'] #la bolsa de palabras del archivo entrenado
     tags = data['tags'] #las etiquetas tag del archivo entrenado
     model_state = data["model_state"] #El modelo de datos del archivo emtrenad
 
-    model = NeuralNet(input_size, hidden_size6, hidden_size, output_size).to(device) #Selecciono los datos que voy ha utilizar
+    model = NeuralNet(input_size, hidden_size6, hidden_size2,hidden_size, output_size).to(device) #Selecciono los datos que voy ha utilizar
     model.load_state_dict(model_state)
     model.eval() #Evaluo los datos del modelo
     # return '<h2>sdfjk</h2>'
