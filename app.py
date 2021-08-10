@@ -42,6 +42,7 @@ def response():
     app.logger.info(data)
     input_size = data["input_size"]#recogo el tamaño de los datos de entrada
     hidden_size6 = data["hidden_size6"]
+    hidden_size3 = data["hidden_size3"]
     hidden_size2 = data["hidden_size2"]
     hidden_size = data["hidden_size"]
     output_size = data["output_size"] #recogo el tamaño de los datos de salida
@@ -49,7 +50,7 @@ def response():
     tags = data['tags'] #las etiquetas tag del archivo entrenado
     model_state = data["model_state"] #El modelo de datos del archivo emtrenad
 
-    model = NeuralNet(input_size, hidden_size6, hidden_size2,hidden_size, output_size).to(device) #Selecciono los datos que voy ha utilizar
+    model = NeuralNet(input_size, hidden_size6, hidden_size3, hidden_size2,hidden_size, output_size).to(device) #Selecciono los datos que voy ha utilizar
     model.load_state_dict(model_state)
     model.eval() #Evaluo los datos del modelo
     # return '<h2>sdfjk</h2>'
@@ -97,4 +98,4 @@ def response():
     else:
         #return jsonify({"response": random.choice(['I siee...', 'mmmmmm', 'ops..', 'O_O', 'jumm..', 'okeyyy', 'ok', 'tell me more'])})
         #return jsonify({"response": random.choice(['I siee...', 'mmmmmm', ', 'jumm..', 'okeyyy', 'ok', 'tell me more', '\N{thinking face} \N{thinking face}', '\N{face without mouth} ', '\N{lying face} \N{lying face}  jajaj', '\N{relieved face} \N{relieved face}', '\N{OK hand} \N{OK hand} \N{OK hand} \N{OK hand}', '\N{face with open mouth} \N{face with open mouth} \N{face with open mouth}', 'ou \N{flexed biceps} \N{flexed biceps}' , '.. \N{eyes} \N{eyes} ...'  ])})
-        return jsonify({"response": random.choice(['Sorry, I am not sure about the answer...', 'Wait, do you really something about that?', 'mmm I am not sure, may be you have to train me more', 'OPS, I dont have any information about that', 'OHh no ! I dont have the answer of that question :(', 'Ou... that... I dont have any response for that', 'I dont have the answer of that question, Are you sure that you trained me?'])})
+        return jsonify({"response": random.choice(['Sorry, I am not sure about the answer...', 'Wait, do you really told me something about that?', 'mmm I am not sure, may be you have to train me more', 'OPS, I dont have any information about that', 'OHh no ! I dont have the answer of that question :(', 'Ou... that... I dont have any response for that', 'I dont have the answer of that question, Are you sure that you trained me?'])})
