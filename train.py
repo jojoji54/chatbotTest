@@ -17,7 +17,7 @@ from model import NeuralNet
 #os.remove("intents.json")
 #os.system('python database.py')
 
-# Es en este archivo en donde entrenamos nla IA para que sea capaz de reconocer los comandos del archivo de jsonn
+# Es en este archivo en donde entrenamos nla IA para que sea capaz de reconocer los comandos del archivo de json
 os.remove("data.pth")
 
 
