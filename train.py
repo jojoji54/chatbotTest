@@ -42,7 +42,7 @@ for intent in intents['intents']:
         xy.append((w, tag))
 
 # Stem y lo pongo en letras minusculas cada palabra
-ignore_words = ['?', '.', '!', ',']
+ignore_words = ['?', '.', '!', ',',' ']
 all_words = [stem(w) for w in all_words if w not in ignore_words]
 # remuevo las entradas duplicadas
 all_words = sorted(set(all_words))
@@ -71,7 +71,7 @@ num_epochs = 8000  # en 6000 funciona muy bien
 batch_size = 128  # en 128 Funciona muy bien
 learning_rate = 0.001
 input_size = len(X_train[0])
-hidden_size6 = 64  # en 10 y 8 esta bastante bien
+hidden_size6 = 32  # en 10 y 8 esta bastante bien
 hidden_size3 = 32  # testeo con 3 capas
 hidden_size2 = 16  # en 8 esta bastante bien
 hidden_size = 16  # en 8 esta bastante bien
