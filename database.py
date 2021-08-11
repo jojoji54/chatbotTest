@@ -16,7 +16,7 @@ db = firestore.client()
 
 #Para hacer mas inteligente nuestra IA tenemos que guardar dos tipos de parametros , los que van a ser usador para pregunta y los que no van a ser u
 #usados para nada , sin embargo servira para agrandar la base de datos de la IA, este archivo recupera los datos que  serviran
-#para preguntas
+#para preguntass
 
 #shutil.copy('intentsGlobal.json', 'intents.json')
 
