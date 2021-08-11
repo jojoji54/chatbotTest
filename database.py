@@ -16,9 +16,9 @@ db = firestore.client()
 
 #Para hacer mas inteligente nuestra IA tenemos que guardar dos tipos de parametros , los que van a ser usador para pregunta y los que no van a ser u
 #usados para nada , sin embargo servira para agrandar la base de datos de la IA, este archivo recupera los datos que  serviran
-#para preguntass
+#para preguntas
 
-#shutil.copy('intentsGlobal.json', 'intents.json')
+shutil.copy('intentsGlobal.json', 'intents.json')
 
 intents = {"intents": []} #etiqueta del archivo json
 detect_duplicate_by_tag = [] #variable que se usara para no duplicar entras
@@ -41,7 +41,7 @@ for index, result in enumerate(results):
     if not (f"firebaseData{index}" in detect_duplicate_by_tag):
         intents["intents"].append({
             "tag": f"firebaseData{index}",
-            "patterns":   [data["messageQuestion2"], data["messageQuestion3"], data["messageQuestion4"], data["messageQuestion5"], data["messageQuestion6"], data["messageQuestion7"], data["messageQuestion15"],data["messageQuestion16"],data["messageQuestion1"]],
+            "patterns":   [data["messageQuestion2"], data["messageQuestion3"], data["messageQuestion4"], data["messageQuestion5"], data["messageQuestion6"], data["messageQuestion7"], data["messageQuestion15"]],
             "responses": [data["IAmessageQuestion8"], data["IAmessageQuestion9"], data["IAmessageQuestion10"], data["IAmessageQuestion11"], data["IAmessageQuestion12"], data["IAmessageQuestion13"], data["IAmessageQuestion14"]]
         })
         detect_duplicate_by_tag.append(f"firebaseData{index}")

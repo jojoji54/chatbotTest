@@ -41,16 +41,13 @@ def response():
     data = torch.load(FILE) #abro el archivo data que es el archivo ya entrenado
     app.logger.info(data)
     input_size = data["input_size"]#recogo el tamaño de los datos de entrada
-    hidden_size6 = data["hidden_size6"]
-    hidden_size3 = data["hidden_size3"]
-    hidden_size2 = data["hidden_size2"]
     hidden_size = data["hidden_size"]
     output_size = data["output_size"] #recogo el tamaño de los datos de salida
     all_words = data['all_words'] #la bolsa de palabras del archivo entrenado
     tags = data['tags'] #las etiquetas tag del archivo entrenado
     model_state = data["model_state"] #El modelo de datos del archivo emtrenad
 
-    model = NeuralNet(input_size, hidden_size6,hidden_size3,hidden_size2, hidden_size, output_size).to(device) #Selecciono los datos que voy ha utilizar
+    model = NeuralNet(input_size, hidden_size, output_size).to(device) #Selecciono los datos que voy ha utilizar
     model.load_state_dict(model_state)
     model.eval() #Evaluo los datos del modelo
     # return '<h2>sdfjk</h2>'
@@ -76,7 +73,7 @@ def response():
         for intent in intents['intents']:
             if tag == intent["tag"]:
                 if intent["tag"] == "goodbye":
-                    #os.remove("intents.json")
+                    os.remove("intents.json")
                     os.system('python database.py')
                    # f = open("database.py")
                     #f = open("randomDatabase.py")

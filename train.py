@@ -67,9 +67,6 @@ num_epochs = 8000 #en 6000 funciona muy bien
 batch_size = 256 # en 128 Funciona muy bien
 learning_rate = 0.001
 input_size = len(X_train[0])
-hidden_size6 = 64 #en 10 y 8 esta bastante bien
-hidden_size3 = 32
-hidden_size2 = 16
 hidden_size = 16 #en 8 esta bastante bien
 output_size = len(tags)
 print(input_size, output_size)
@@ -97,7 +94,7 @@ train_loader = DataLoader(dataset=dataset,
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-model = NeuralNet(input_size, hidden_size6,hidden_size3,hidden_size2,hidden_size, output_size).to(device)
+model = NeuralNet(input_size,hidden_size, output_size).to(device)
 
 # Loss y el optimizador
 criterion = nn.CrossEntropyLoss()
@@ -130,9 +127,6 @@ print(f'final loss: {loss.item():.4f}')
 data = {
 "model_state": model.state_dict(),
 "input_size": input_size,
-"hidden_size6": hidden_size6,
-"hidden_size3": hidden_size3,
-"hidden_size2": hidden_size2,
 "hidden_size": hidden_size,
 "output_size": output_size,
 "all_words": all_words,
