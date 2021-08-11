@@ -14,7 +14,7 @@ from model import NeuralNet
 # os.system('python randomDatabase.py')
 #global epoch
 
-#Es en este archivo en donde entrenamos nla IA para que sea capaz de reconocer los comandos del archivo de json
+#Es en este archivo en donde entrenamos nla IA para que sea capaz de reconocer los comandos del archivo de jsonn
 os.remove("data.pth")
 
 #Abro el archivo json que es el archivo que tiene los comandos
