@@ -14,14 +14,10 @@ from model import NeuralNet
 # os.system('python randomDatabase.py')
 #global epoch
 
-#os.remove("intents.json")
-#os.system('python database.py')
-
-# Es en este archivo en donde entrenamos nla IA para que sea capaz de reconocer los comandos del archivo de json
+#Es en este archivo en donde entrenamos nla IA para que sea capaz de reconocer los comandos del archivo de json
 os.remove("data.pth")
 
-
-# Abro el archivo json que es el archivo que tiene los comandos
+#Abro el archivo json que es el archivo que tiene los comandos
 with open('intents.json', 'r') as f:
     intents = json.load(f)
 
@@ -34,7 +30,7 @@ for intent in intents['intents']:
     # Lo añado a la lista tag
     tags.append(tag)
     for pattern in intent['patterns']:
-        # Tokenizo cada palabra de la frase
+        #Tokenizo cada palabra de la frase
         w = tokenize(pattern)
         # Lo añado a mi bolsa de palabras
         all_words.extend(w)
@@ -56,7 +52,7 @@ print(len(all_words), "unique stemmed words:", all_words)
 X_train = []
 y_train = []
 for (pattern_sentence, tag) in xy:
-    # X: una bolsa de palabras para cada patron_farse
+    # X: una bolsa de palabras para cada patron_farse 
     bag = bag_of_words(pattern_sentence, all_words)
     X_train.append(bag)
     # y: PyTorch CrossEntropyLoss solo necesita la clase de labels, no otra
@@ -67,16 +63,14 @@ X_train = np.array(X_train)
 y_train = np.array(y_train)
 
 # hiperparámetros
-num_epochs = 10000  # en 6000 funciona muy bien
-batch_size = 512  # en 128 Funciona muy bien
+num_epochs = 6000 #en 6000 funciona muy bien
+batch_size = 128 # en 128 Funciona muy bien
 learning_rate = 0.001
 input_size = len(X_train[0])
-hidden_size3 = 64  # testeo con 3 capas
-hidden_size2 = 32  # en 8 esta bastante bien
-hidden_size = 16  # en 8 esta bastante bien
+hidden_size6 = 32 #en 10 y 8 esta bastante bien
+hidden_size = 8 #en 8 esta bastante bien
 output_size = len(tags)
 print(input_size, output_size)
-
 
 class ChatDataset(Dataset):
 
@@ -85,14 +79,13 @@ class ChatDataset(Dataset):
         self.x_data = X_train
         self.y_data = y_train
 
-    # soporta los datos del dataset[i] de forma indexa, lo podemos usar para obtener por ejemplo parametros del estilo i-th
+    #soporta los datos del dataset[i] de forma indexa, lo podemos usar para obtener por ejemplo parametros del estilo i-th 
     def __getitem__(self, index):
         return self.x_data[index], self.y_data[index]
 
     # Podemos llamar a la longitud del dataset para calcular el tamaño
     def __len__(self):
         return self.n_samples
-
 
 dataset = ChatDataset()
 train_loader = DataLoader(dataset=dataset,
@@ -102,8 +95,7 @@ train_loader = DataLoader(dataset=dataset,
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-model = NeuralNet(input_size,hidden_size3, hidden_size2,
-                  hidden_size, output_size).to(device)
+model = NeuralNet(input_size, hidden_size6,hidden_size, output_size).to(device)
 
 # Loss y el optimizador
 criterion = nn.CrossEntropyLoss()
@@ -114,34 +106,33 @@ for epoch in range(num_epochs):
     for (words, labels) in train_loader:
         words = words.to(device)
         labels = labels.to(dtype=torch.long).to(device)
-
+        
         # Pase adelantado
         outputs = model(words)
         # si fuera on-hot, debemos aplicar
         # labels = torch.max(labels, 1)[1]
         loss = criterion(outputs, labels)
-
+        
         # Retroceder y optimizar
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
-
+        
     if (epoch+1) % 100 == 0:
-        print(f'Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}')
+        print (f'Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}')
         #epoch = f'Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}';
 
 
 print(f'final loss: {loss.item():.4f}')
 
 data = {
-    "model_state": model.state_dict(),
-    "input_size": input_size,
-    "hidden_size3": hidden_size3,
-    "hidden_size2": hidden_size2,
-    "hidden_size": hidden_size,
-    "output_size": output_size,
-    "all_words": all_words,
-    "tags": tags
+"model_state": model.state_dict(),
+"input_size": input_size,
+"hidden_size6": hidden_size6,
+"hidden_size": hidden_size,
+"output_size": output_size,
+"all_words": all_words,
+"tags": tags
 }
 
 FILE = "data.pth"
