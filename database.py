@@ -18,7 +18,7 @@ db = firestore.client()
 #usados para nada , sin embargo servira para agrandar la base de datos de la IA, este archivo recupera los datos que  serviran
 #para preguntas
 
-shutil.copy('intentsGlobal.json', 'intents.json')
+#shutil.copy('intentsGlobal.json', 'intents.json')
 
 intents = {"intents": []} #etiqueta del archivo json
 detect_duplicate_by_tag = [] #variable que se usara para no duplicar entras
