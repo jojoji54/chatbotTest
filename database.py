@@ -34,14 +34,15 @@ with open('intents.json') as json_file:
 
 #Esto de qui abajo, me permita recuperar los datos de la base de datos que tienen la etiqueta de la condicion
 print("old data:", len(intents['intents']))
-results = db.collection('users').document(
-    'Peo5kqpi4GORXehD3oQVRXpHGfD2').collection('chats').get()
+#results = db.collection('users').document(
+    #'Peo5kqpi4GORXehD3oQVRXpHGfD2').collection('chats').get()
+results = db.collection('Anychats').get()
 for index, result in enumerate(results):
     data = result.to_dict()
     if not (f"firebaseData{index}" in detect_duplicate_by_tag):
         intents["intents"].append({
             "tag": f"firebaseData{index}",
-            "patterns":   [data["messageQuestion2"], data["messageQuestion3"], data["messageQuestion4"], data["messageQuestion5"], data["messageQuestion6"], data["messageQuestion7"], data["messageQuestion15"]],
+            "patterns":   [data["messageQuestion2"], data["messageQuestion3"], data["messageQuestion4"], data["messageQuestion5"], data["messageQuestion6"], data["messageQuestion7"], data["messageQuestion15"],data["messageQuestion17"],],
             "responses": [data["IAmessageQuestion8"], data["IAmessageQuestion9"], data["IAmessageQuestion10"], data["IAmessageQuestion11"], data["IAmessageQuestion12"], data["IAmessageQuestion13"], data["IAmessageQuestion14"]]
         })
         detect_duplicate_by_tag.append(f"firebaseData{index}")
